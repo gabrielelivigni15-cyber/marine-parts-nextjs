@@ -59,3 +59,7 @@ npm run dev
 ```
 
 Poi apri `http://localhost:3000`.
+
+## Deploy
+
+Il progetto e pronto per Vercel. La configurazione e in `vercel.json`; i passaggi completi sono in `DEPLOYMENT.md`.
