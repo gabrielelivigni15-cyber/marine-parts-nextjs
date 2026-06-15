@@ -1,4 +1,4 @@
-import { ArrowRight, ClipboardCheck, Database, Search, Settings2 } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import Link from "next/link";
 import { categories, supportedBrands } from "@/lib/catalog";
 
@@ -6,103 +6,65 @@ export default function HomePage() {
   return (
     <>
       <section className="hero industrial-hero">
-        <div className="hero-copy">
-          <p className="eyebrow">Ricambi industriali e motori diesel</p>
-          <h1>Ricambi industriali e motori diesel</h1>
+        <div className="hero-center">
+          <p className="eyebrow">Piattaforma tecnica ricambi</p>
+          <h1>Trova il ricambio corretto.</h1>
           <p>Ricerca componenti tramite codice articolo, modello motore o applicazione.</p>
 
           <div className="hero-search" aria-label="Ricerca principale">
-            <div className="field">
-              <label htmlFor="hero-code">Codice articolo</label>
-              <input id="hero-code" placeholder="Esempio: Cummins FF5713, Racor 500FG" />
-            </div>
-            <div className="field">
-              <label htmlFor="hero-engine">Modello motore</label>
-              <input id="hero-engine" placeholder="Esempio: Cummins, Perkins, Volvo Penta" />
+            <div className="field search-primary-field">
+              <label htmlFor="hero-code">Ricerca componente</label>
+              <input id="hero-code" placeholder="Codice, motore, filtro, sensore o applicazione" />
             </div>
             <div className="field">
               <label htmlFor="hero-serial">Seriale motore</label>
-              <input id="hero-serial" placeholder="Da indicare per la verifica" />
+              <input id="hero-serial" placeholder="Per verifica compatibilita" />
             </div>
             <Link className="button" href="/cerca-per-motore">
-              Cerca ricambi
+              Cerca
               <Search size={18} />
             </Link>
           </div>
-        </div>
-        <div className="hero-panel" aria-label="Nota operativa">
-          <div>
-            <span>Metodo di lavoro</span>
-            <strong>Si parte da codice, modello motore o applicazione. La compatibilita si conferma con il seriale.</strong>
-          </div>
-          <div>
-            <span>Marchi trattati</span>
-            <strong>{supportedBrands.join(", ")}</strong>
-          </div>
-          <div>
-            <span>Nota tecnica</span>
-            <strong>La disponibilita deve essere confermata prima dell&apos;ordine.</strong>
+
+          <div className="hero-meta" aria-label="Ambiti di ricerca">
+            <span>Motori diesel</span>
+            <span>Gruppi elettrogeni</span>
+            <span>Filtri</span>
+            <span>Sensori</span>
+            <span>Raffreddamento</span>
           </div>
         </div>
       </section>
 
-      <section className="section split-section">
-        <div className="section-header">
-          <p className="eyebrow">Ricerca e verifica</p>
-          <h2>Il catalogo serve a identificare il ricambio, non a sostituire il controllo tecnico.</h2>
-        </div>
-        <div className="process-grid">
-          <div className="feature">
-            <Search color="#f2b84b" />
-            <h3>Ricerca per codice</h3>
-            <p>Inserisci il riferimento presente sul filtro, sul sensore, sulla confezione o su una fattura precedente.</p>
-          </div>
-          <div className="feature">
-            <Settings2 color="#6ea8ff" />
-            <h3>Ricerca per motore</h3>
-            <p>Indica marchio, modello e applicazione. Se il dato non e sufficiente, serve il seriale motore.</p>
-          </div>
-          <div className="feature">
-            <ClipboardCheck color="#35c46d" />
-            <h3>Verifica compatibilita</h3>
-            <p>La compatibilita deve essere verificata tramite numero di serie del motore prima dell&apos;ordine.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-header">
-          <p className="eyebrow">Categorie ricambio</p>
-          <h2>Filtri, sensori, raffreddamento e kit manutenzione.</h2>
+      <section className="section platform-section">
+        <div className="section-header wide-header">
+          <p className="eyebrow">Identificazione prima dell&apos;ordine</p>
+          <h2>La piattaforma non spinge prodotti. Riduce il rischio di scegliere il componente sbagliato.</h2>
           <p>
-            Le categorie aiutano a orientare la richiesta. Per l&apos;ordine servono sempre codice, modello o numero di
-            serie.
+            Si parte da un codice, da un modello motore o da un&apos;applicazione. La compatibilita viene verificata con
+            il numero di serie prima del preventivo.
           </p>
         </div>
-        <div className="category-grid">
-          {categories.map((category) => (
-            <div className="category-tile" key={category}>
-              <Database size={18} />
-              <span>{category}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
-      <section className="section service-band">
-        <div className="section-header">
-          <p className="eyebrow">Richiesta tecnica</p>
-          <h2>Quando il codice non basta, servono dati macchina.</h2>
-          <p>
-            Modello motore, seriale, applicazione e foto del componente riducono il rischio di ordinare un ricambio non
-            corretto.
-          </p>
-        </div>
-        <div className="button-row">
-          <Link className="button secondary" href="/richiesta-preventivo">
-            Apri richiesta preventivo
-            <ArrowRight size={18} />
-          </Link>
+      <section className="section platform-grid-section">
+        <div className="platform-grid">
+          <div>
+            <p className="eyebrow">Marchi</p>
+            <h3>{supportedBrands.join(", ")}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Categorie</p>
+            <h3>{categories.slice(0, 5).join(", ")}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Richiesta tecnica</p>
+            <h3>Codice ricambio, modello, seriale, applicazione.</h3>
+            <Link className="text-link platform-link" href="/richiesta-preventivo">
+              Apri richiesta
+              <ArrowRight size={17} />
+            </Link>
+          </div>
         </div>
       </section>
     </>

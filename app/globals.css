@@ -1,9 +1,9 @@
 :root {
-  --bg: #0a0d10;
-  --bg-2: #10151b;
-  --panel: #151b22;
-  --panel-2: #1b232c;
-  --line: #303944;
+  --bg: #05070a;
+  --bg-2: #0b0f14;
+  --panel: rgba(16, 21, 28, 0.78);
+  --panel-2: #111820;
+  --line: rgba(255, 255, 255, 0.12);
   --line-soft: rgba(255, 255, 255, 0.08);
   --text: #f5f7f8;
   --muted: #a5afba;
@@ -12,8 +12,8 @@
   --blue: #7ea7d8;
   --green: #65b783;
   --steel: #c4ccd4;
-  --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
-  --radius: 6px;
+  --shadow: 0 34px 100px rgba(0, 0, 0, 0.42);
+  --radius: 12px;
 }
 
 * {
@@ -28,8 +28,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 220px),
-    linear-gradient(135deg, #0a0d10 0%, #0e1318 44%, #080a0d 100%);
+    radial-gradient(circle at 50% -10%, rgba(126, 167, 216, 0.16), transparent 32%),
+    linear-gradient(135deg, #05070a 0%, #0b0f14 48%, #05070a 100%);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
@@ -63,10 +63,10 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px clamp(18px, 4vw, 56px);
-  background: rgba(10, 13, 16, 0.92);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
+  padding: 18px clamp(20px, 4vw, 64px);
+  background: rgba(5, 7, 10, 0.72);
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: blur(22px);
 }
 
 .brand,
@@ -171,39 +171,55 @@ main {
 }
 
 .hero {
+  position: relative;
   min-height: calc(100vh - 70px);
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.58fr);
-  gap: clamp(24px, 5vw, 70px);
-  align-items: center;
-  padding: clamp(46px, 8vw, 96px) clamp(18px, 4vw, 56px);
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(70px, 8vw, 120px) clamp(20px, 4vw, 64px);
 }
 
-.industrial-hero {
+.industrial-hero::before {
+  position: absolute;
+  inset: 8% -10% 0 36%;
+  background: url("/images/industrial-diesel-hero.png") center/contain no-repeat;
+  content: "";
+  opacity: 0.54;
+  filter: saturate(0.92) contrast(1.05);
+}
+
+.industrial-hero::after {
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(90deg, rgba(8, 10, 12, 0.88), rgba(8, 10, 12, 0.72)),
-    url("/images/industrial-diesel-hero.png") center/cover;
+    linear-gradient(90deg, rgba(5, 7, 10, 0.98) 0%, rgba(5, 7, 10, 0.72) 44%, rgba(5, 7, 10, 0.38) 100%),
+    radial-gradient(circle at 68% 50%, rgba(240, 180, 41, 0.12), transparent 26%);
+  content: "";
 }
 
-.hero-copy {
-  max-width: 980px;
+.hero-center {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, 100%);
+  display: grid;
+  justify-items: center;
+  text-align: center;
 }
 
-.hero-copy h1 {
+.hero-center h1 {
   margin: 0 0 18px;
   color: var(--text);
-  font-size: clamp(46px, 8vw, 88px);
-  line-height: 0.95;
+  font-size: clamp(54px, 9vw, 112px);
+  line-height: 0.9;
   letter-spacing: 0;
 }
 
-.hero-copy p {
-  max-width: 680px;
-  font-size: 20px;
+.hero-center p {
+  max-width: 760px;
+  font-size: clamp(18px, 2vw, 24px);
 }
 
 .hero-search,
-.hero-panel,
 .inventory-note,
 .product-card,
 .feature,
@@ -215,47 +231,44 @@ main {
 .result-row {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(21, 27, 34, 0.94);
+  background: var(--panel);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
 }
 
 .hero-search {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  gap: 14px;
+  grid-template-columns: minmax(300px, 1.35fr) minmax(220px, 0.65fr) auto;
+  gap: 12px;
   align-items: end;
-  margin-top: 34px;
-  padding: 18px;
+  width: min(940px, 100%);
+  margin-top: 42px;
+  padding: 14px;
 }
 
-.hero-panel {
-  display: grid;
-  overflow: hidden;
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
-.hero-panel div {
-  display: grid;
-  gap: 8px;
-  padding: 20px;
-  border-bottom: 1px solid var(--line-soft);
+.hero-meta span {
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.035);
 }
 
-.hero-panel div:last-child {
-  border-bottom: 0;
-}
-
-.hero-panel span,
 .result-row span,
 .part-number-panel span {
   color: var(--dim);
   font-size: 12px;
   font-weight: 850;
   text-transform: uppercase;
-}
-
-.hero-panel strong {
-  color: var(--text);
-  line-height: 1.42;
 }
 
 .hero-actions,
@@ -299,19 +312,46 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.process-grid {
+.process-grid,
+.category-grid,
+.platform-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.category-grid {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-}
-
 .split-section,
-.service-band {
+.service-band,
+.platform-section,
+.platform-grid-section {
   border-top: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.platform-grid {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--line-soft);
+}
+
+.platform-grid > div {
+  min-height: 220px;
+  padding: clamp(24px, 4vw, 42px);
+  background: rgba(10, 14, 19, 0.88);
+}
+
+.platform-grid h3 {
+  max-width: 520px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.08;
+}
+
+.platform-link {
+  margin-top: 24px;
 }
 
 .product-card {
@@ -407,6 +447,68 @@ main {
 .catalog-tools {
   grid-template-columns: minmax(260px, 1fr) minmax(180px, 0.4fr) minmax(180px, 0.4fr);
   align-items: end;
+}
+
+.tool-page {
+  padding-top: clamp(72px, 8vw, 120px);
+}
+
+.catalog-console {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(160px, 0.35fr) minmax(170px, 0.42fr) auto;
+  gap: 12px;
+  align-items: end;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  background: rgba(16, 21, 28, 0.82);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+}
+
+.technical-note {
+  margin: 20px 0 30px;
+  color: var(--muted);
+}
+
+.parts-table {
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.parts-table-head,
+.parts-row {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.2fr) minmax(120px, 0.34fr) minmax(150px, 0.4fr) minmax(240px, 0.8fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+
+.parts-table-head {
+  padding: 14px 18px;
+  color: var(--dim);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.parts-row {
+  padding: 20px 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.parts-row strong {
+  color: var(--text);
+}
+
+.parts-row span,
+.parts-row p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .inventory-note {
@@ -658,29 +760,32 @@ textarea {
 }
 
 @media (max-width: 1100px) {
-  .hero-search {
+  .hero-search,
+  .catalog-console,
+  .parts-table-head,
+  .parts-row {
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero-search .button {
+  .hero-search .button,
+  .catalog-console .button {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 980px) {
-  .hero,
   .catalog-tools,
   .detail-grid,
   .search-console,
   .result-row,
   .process-grid,
-  .b2b-grid {
+  .b2b-grid,
+  .platform-grid {
     grid-template-columns: 1fr;
   }
 
   .hero {
     min-height: 760px;
-    align-items: end;
   }
 
   .row-actions {
@@ -692,7 +797,10 @@ textarea {
   .site-header,
   .inventory-note,
   .form-grid,
-  .hero-search {
+  .hero-search,
+  .catalog-console,
+  .parts-table-head,
+  .parts-row {
     grid-template-columns: 1fr;
   }
 
@@ -705,12 +813,17 @@ textarea {
     justify-content: start;
   }
 
-  .hero-copy h1 {
-    font-size: 42px;
+  .hero-center h1 {
+    font-size: 48px;
   }
 
-  .hero-copy p {
+  .hero-center p {
     font-size: 17px;
+  }
+
+  .industrial-hero::before {
+    inset: 4% -55% 30% 0;
+    opacity: 0.28;
   }
 
   .spec-list div {
