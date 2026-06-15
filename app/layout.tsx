@@ -4,9 +4,9 @@ import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MarineParts Pro | Ricambi motori marini",
+  title: "Apex Industrial Parts | Diesel, generator and marine engine spares",
   description:
-    "Catalogo tecnico per vendita ricambi motori marini con disponibilita, compatibilita motore, preventivi e area B2B."
+    "Industrial spare parts catalog for diesel engines, generator sets, marine engines, filters, sensors, cooling systems and maintenance kits."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

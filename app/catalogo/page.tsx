@@ -8,34 +8,34 @@ export default function CatalogPage() {
   const categories = getCategories();
 
   return (
-    <section className="section">
-      <div className="section-header">
-        <p className="eyebrow">Catalogo tecnico</p>
-        <h1>Ricambi motori marini disponibili a magazzino o da fornitore.</h1>
+    <section className="section page-shell">
+      <div className="section-header wide-header">
+        <p className="eyebrow">Industrial catalog</p>
+        <h1>Spare parts for engines, generator sets and industrial equipment.</h1>
         <p>
-          Elenco demo strutturato come un catalogo reale: codice articolo, marca, compatibilita motore, fornitore,
-          prezzo e disponibilita. I filtri sono predisposti per essere collegati a ricerca server o gestionale.
+          This catalog is structured for technical sourcing. Search by part number, filter by brand or category, then
+          open a product record before sending a quote request.
         </p>
       </div>
 
       <div className="catalog-tools">
         <div className="field">
-          <label htmlFor="search">Cerca codice o descrizione</label>
-          <input id="search" placeholder="Es. VP-21951356, girante, filtro gasolio" />
+          <label htmlFor="search">Part number or description</label>
+          <input id="search" placeholder="Example: CUM-SEN, Perkins kit, fuel filter" />
         </div>
         <div className="field">
-          <label htmlFor="brand">Marca</label>
+          <label htmlFor="brand">Brand</label>
           <select id="brand">
-            <option>Tutte le marche</option>
+            <option>All brands</option>
             {brands.map((brand) => (
               <option key={brand}>{brand}</option>
             ))}
           </select>
         </div>
         <div className="field">
-          <label htmlFor="category">Categoria</label>
+          <label htmlFor="category">Category</label>
           <select id="category">
-            <option>Tutte le categorie</option>
+            <option>All categories</option>
             {categories.map((category) => (
               <option key={category}>{category}</option>
             ))}
@@ -46,23 +46,23 @@ export default function CatalogPage() {
       <div className="inventory-note">
         <PackageSearch size={18} />
         <span>
-          {products.length} articoli demo. Disponibilita espressa come stock locale, deposito fornitore o arrivo stimato.
+          {products.length} demo records. Availability is shown as warehouse stock, supplier stock, low stock or
+          on-request.
         </span>
         <Link className="text-link" href="/richiesta-preventivo">
-          Richiedi quotazione
+          Request quote
         </Link>
       </div>
 
-      <div className="section-header" style={{ marginTop: 34 }}>
+      <div className="section-header inline-note">
         <p>
-          <Filter size={16} aria-hidden="true" /> Catalogo ricambi manutenzione, raffreddamento, filtrazione,
-          accensione e anodi.
+          <Filter size={16} aria-hidden="true" /> Compatibility should be verified through engine serial number.
         </p>
       </div>
 
       <div className="grid">
         {products.map((product) => (
-          <ProductCard key={product.codice} product={product} />
+          <ProductCard key={product.partNumber} product={product} />
         ))}
       </div>
     </section>

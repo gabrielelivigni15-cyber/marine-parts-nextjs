@@ -1,15 +1,15 @@
 import { ClipboardCheck, Mail, Phone } from "lucide-react";
-import { products } from "@/lib/catalog";
+import { products, supportedBrands } from "@/lib/catalog";
 
 export default function QuoteRequestPage() {
   return (
-    <section className="section">
-      <div className="section-header">
-        <p className="eyebrow">Richiesta preventivo</p>
-        <h1>Invia codice, motore e urgenza. Rispondiamo con disponibilita e alternativa compatibile.</h1>
+    <section className="section page-shell">
+      <div className="section-header wide-header">
+        <p className="eyebrow">Technical quote request</p>
+        <h1>Send the part number, engine model and serial number before procurement.</h1>
         <p>
-          Il form e pensato per ricambi reali: se il codice non e certo, bastano marca motore, modello, matricola e foto
-          del componente. Il banco ricambi verifica prima di quotare.
+          This form is structured for industrial buyers. If the exact part number is unknown, provide engine model,
+          serial number, machine application and photographs of the existing component.
         </p>
       </div>
 
@@ -17,72 +17,87 @@ export default function QuoteRequestPage() {
         <div className="form-panel">
           <form className="form-grid">
             <div className="field">
-              <label htmlFor="company">Azienda o nominativo</label>
-              <input id="company" name="company" placeholder="Officina Rossi / Mario Bianchi" />
+              <label htmlFor="company">Company</label>
+              <input id="company" name="company" placeholder="Maintenance company / plant / workshop" />
             </div>
             <div className="field">
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="acquisti@azienda.it" />
+              <label htmlFor="email">Procurement email</label>
+              <input id="email" name="email" type="email" placeholder="procurement@company.com" />
             </div>
             <div className="field">
-              <label htmlFor="phone">Telefono</label>
+              <label htmlFor="phone">Phone</label>
               <input id="phone" name="phone" placeholder="+39 ..." />
             </div>
             <div className="field">
-              <label htmlFor="code">Codice articolo</label>
-              <select id="code" name="code" defaultValue="">
-                <option value="">Da verificare / non lo conosco</option>
+              <label htmlFor="part">Part number</label>
+              <select id="part" name="part" defaultValue="">
+                <option value="">Unknown / to be identified</option>
                 {products.map((product) => (
-                  <option key={product.codice} value={product.codice}>
-                    {product.codice} - {product.marca}
+                  <option key={product.partNumber} value={product.partNumber}>
+                    {product.partNumber} - {product.brand}
                   </option>
                 ))}
               </select>
             </div>
             <div className="field">
-              <label htmlFor="engine">Motore</label>
-              <input id="engine" name="engine" placeholder="Es. Volvo Penta D2-55" />
+              <label htmlFor="brand">Engine brand</label>
+              <select id="brand" name="brand">
+                <option>To be confirmed</option>
+                {supportedBrands.map((brand) => (
+                  <option key={brand}>{brand}</option>
+                ))}
+              </select>
             </div>
             <div className="field">
-              <label htmlFor="urgency">Urgenza</label>
+              <label htmlFor="model">Engine or generator model</label>
+              <input id="model" name="model" placeholder="Example: Cummins QSB, Perkins 1104D" />
+            </div>
+            <div className="field">
+              <label htmlFor="serial">Engine serial number</label>
+              <input id="serial" name="serial" placeholder="Required for compatibility verification" />
+            </div>
+            <div className="field">
+              <label htmlFor="urgency">Requirement</label>
               <select id="urgency" name="urgency">
-                <option>Fermo barca</option>
-                <option>Manutenzione programmata</option>
-                <option>Scorta magazzino</option>
+                <option>Machine down</option>
+                <option>Scheduled maintenance</option>
+                <option>Fleet stock replenishment</option>
+                <option>Technical identification only</option>
               </select>
             </div>
             <div className="field full">
-              <label htmlFor="message">Note tecniche</label>
+              <label htmlFor="message">Technical notes</label>
               <textarea
                 id="message"
                 name="message"
-                placeholder="Indica matricola motore, anno, quantita, eventuali misure o ricambio smontato."
+                placeholder="Application, quantity, installed machine, photographs available, delivery location."
               />
             </div>
             <button className="button" type="button">
               <ClipboardCheck size={18} />
-              Invia richiesta
+              Send technical request
             </button>
           </form>
         </div>
 
         <div className="detail-panel">
-          <h2>Informazioni utili per quotare senza errori</h2>
+          <h2>Information required by the technical desk</h2>
           <div className="quote-checklist">
-            <p>Codice presente sul pezzo o sul manuale ricambi.</p>
-            <p>Marca, modello e matricola motore.</p>
-            <p>Quantita richiesta e porto/cantiere di consegna.</p>
-            <p>Foto targhetta motore e componente, se il codice e dubbio.</p>
+            <p>Part number from the component, service manual or previous invoice.</p>
+            <p>Engine or generator model and complete serial number.</p>
+            <p>Machine application: generator set, industrial equipment, marine engine or fleet unit.</p>
+            <p>Required quantity, urgency and delivery destination.</p>
           </div>
+          <p className="verification-banner">Compatibility should be verified through engine serial number.</p>
           <div className="feature" style={{ marginTop: 18 }}>
-            <Phone color="#0b6f79" />
-            <h3>Urgenze</h3>
-            <p>+39 010 000 0000, banco ricambi dalle 8:30 alle 18:00.</p>
+            <Phone color="#f2b84b" />
+            <h3>Urgent requests</h3>
+            <p>Technical desk: +39 010 000 0000, Monday to Friday, 08:00-18:00.</p>
           </div>
           <div className="feature" style={{ marginTop: 14 }}>
-            <Mail color="#b74131" />
-            <h3>Email tecnica</h3>
-            <p>preventivi@marinepartspro.it</p>
+            <Mail color="#6ea8ff" />
+            <h3>Email</h3>
+            <p>quotes@apex-industrial.example</p>
           </div>
         </div>
       </div>

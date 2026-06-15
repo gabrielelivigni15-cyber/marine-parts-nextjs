@@ -1,32 +1,35 @@
-# MarineParts Pro
+# Apex Industrial Parts
 
-Sito Next.js per vendita ricambi motori marini, impostato come catalogo tecnico per banco ricambi, officine nautiche,
-cantieri e clienti B2B.
+Sito Next.js per un'azienda B2B di ricambi industriali: diesel engines, generator sets, marine engines, filters,
+sensors, cooling systems e maintenance kits.
 
 ## Pagine incluse
 
-- Home: proposta commerciale, metriche di magazzino e ricambi richiesti.
-- Catalogo: elenco prodotti con codice, marca, categoria, fornitore, prezzo e disponibilita.
-- Prodotto: rotta dinamica `app/prodotto/[slug]` con dettaglio tecnico e compatibilita motori.
-- Cerca per Motore: selezione marca/modello e risultati compatibili presi da `products.json`.
-- Richiesta Preventivo: form operativo per codice articolo, motore, urgenza e note tecniche.
-- Area B2B: richiesta listino, riordino da distinta e gestione operatori.
+- Home: posizionamento industriale, ricerca ricambi e categorie tecniche.
+- Catalogo: elenco prodotti con part number, brand, categoria, disponibilita e lead time.
+- Prodotto: rotta dinamica `app/prodotto/[slug]` con record tecnico e nota di verifica compatibilita.
+- Parts Search: ricerca per part number, engine model e serial number.
+- Request Quote: form tecnico per procurement e supporto ricambi.
+- B2B: accesso operatori, richieste ricorrenti e supporto per flotte/officine.
 
 ## Dati demo
 
-La sorgente prodotti e `lib/products.json`.
+La sorgente prodotti e `lib/products.json`. Non vengono inventati dati tecnici sconosciuti; ogni record include:
+`Compatibility should be verified through engine serial number.`
 
 Campi usati:
 
-- `codice`
-- `marca`
-- `descrizione`
-- `categoria`
-- `compatibilita_motori`
-- `prezzo`
-- `disponibilita`
-- `fornitore`
-- `immagine`
+- `partNumber`
+- `brand`
+- `description`
+- `category`
+- `applications`
+- `compatibleModels`
+- `availability`
+- `leadTime`
+- `supplier`
+- `image`
+- `verificationNote`
 
 `lib/catalog.ts` normalizza i dati, genera gli slug prodotto e formatta i prezzi.
 

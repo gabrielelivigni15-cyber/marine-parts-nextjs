@@ -1,68 +1,69 @@
 import { BadgePercent, FileSpreadsheet, LockKeyhole, PackageCheck, UserRoundCheck } from "lucide-react";
 import Link from "next/link";
+import { supportedBrands } from "@/lib/catalog";
 
 export default function B2BPage() {
   return (
-    <section className="section">
-      <div className="section-header">
-        <p className="eyebrow">Area B2B</p>
-        <h1>Listini, disponibilita e riordino per operatori nautici.</h1>
+    <section className="section page-shell">
+      <div className="section-header wide-header">
+        <p className="eyebrow">B2B customers</p>
+        <h1>Procurement support for workshops, fleets, generator service companies and industrial plants.</h1>
         <p>
-          Pensata per officine, cantieri, charter e rivenditori che ordinano ricambi a codice e hanno bisogno di tempi
-          chiari prima di confermare il lavoro al cliente.
+          The B2B workflow is designed for repeat purchasing, scheduled maintenance, machine-down requests and technical
+          identification work before orders are released.
         </p>
       </div>
 
       <div className="detail-grid">
         <div className="b2b-panel">
-          <LockKeyhole color="#0b6f79" />
-          <h2>Richiedi abilitazione operatore</h2>
+          <LockKeyhole color="#f2b84b" />
+          <h2>Request B2B access</h2>
           <form className="form-grid">
             <div className="field full">
-              <label htmlFor="company">Ragione sociale</label>
-              <input id="company" placeholder="Cantiere / officina / rivenditore" />
+              <label htmlFor="company">Company name</label>
+              <input id="company" placeholder="Workshop / fleet / industrial plant / distributor" />
             </div>
             <div className="field">
-              <label htmlFor="vat">Partita IVA</label>
-              <input id="vat" placeholder="IT00000000000" />
+              <label htmlFor="vat">VAT or company registration</label>
+              <input id="vat" placeholder="Company identifier" />
             </div>
             <div className="field">
-              <label htmlFor="email">Email acquisti</label>
-              <input id="email" type="email" placeholder="ricambi@azienda.it" />
+              <label htmlFor="email">Purchasing email</label>
+              <input id="email" type="email" placeholder="parts@company.com" />
             </div>
             <div className="field full">
-              <label htmlFor="brands">Marchi trattati</label>
-              <input id="brands" placeholder="Volvo Penta, Yanmar, MerCruiser, Yamaha..." />
+              <label htmlFor="brands">Brands serviced</label>
+              <input id="brands" placeholder={supportedBrands.join(", ")} />
             </div>
             <button className="button" type="button">
-              Richiedi listino B2B
+              Request account review
             </button>
           </form>
         </div>
 
-        <div className="grid">
+        <div className="grid b2b-grid">
           <div className="feature">
-            <BadgePercent color="#b74131" />
-            <h3>Sconti per categoria</h3>
-            <p>Margini separati per filtrazione, anodi, raffreddamento e componenti su ordinazione.</p>
+            <BadgePercent color="#f2b84b" />
+            <h3>Account pricing workflow</h3>
+            <p>Quote handling can separate emergency orders, planned maintenance and recurring fleet stock.</p>
           </div>
           <div className="feature">
-            <FileSpreadsheet color="#2f7d50" />
-            <h3>Ordini da distinta</h3>
-            <p>Import CSV o elenco codici per manutenzioni programmate, rimessaggio e flotte charter.</p>
+            <FileSpreadsheet color="#35c46d" />
+            <h3>Part lists and CSV requests</h3>
+            <p>Send part-number lists, service-kit requirements or multi-engine maintenance schedules.</p>
           </div>
           <div className="feature">
-            <PackageCheck color="#0b6f79" />
-            <h3>Stock e backorder</h3>
-            <p>Visibilita su magazzino locale, deposito fornitore e tempi stimati di arrivo.</p>
+            <PackageCheck color="#6ea8ff" />
+            <h3>Stock and lead-time control</h3>
+            <p>Records distinguish central warehouse, supplier stock, low stock and on-request sourcing.</p>
           </div>
           <div className="feature">
-            <UserRoundCheck color="#0b6f79" />
-            <h3>Supporto banco ricambi</h3>
-            <p>Controllo incrociato su matricole, equivalenze e sostituzioni quando il codice e superato.</p>
+            <UserRoundCheck color="#6ea8ff" />
+            <h3>Technical desk support</h3>
+            <p>Compatibility should be verified through engine serial number before purchase confirmation.</p>
             <div className="button-row">
               <Link className="text-link" href="/richiesta-preventivo">
-                Apri richiesta tecnica
+                Open technical request
               </Link>
             </div>
           </div>

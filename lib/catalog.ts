@@ -1,18 +1,33 @@
 import productsJson from "@/lib/products.json";
 
 export type CatalogProduct = {
-  codice: string;
-  marca: string;
-  descrizione: string;
-  categoria: string;
-  compatibilita_motori: string[];
-  prezzo: number;
-  disponibilita: string;
-  fornitore: string;
-  immagine: string;
+  partNumber: string;
+  brand: string;
+  description: string;
+  category: string;
+  applications: string[];
+  compatibleModels: string[];
+  availability: string;
+  leadTime: string;
+  supplier: string;
+  image: string;
+  verificationNote: string;
 };
 
 export const products = productsJson as CatalogProduct[];
+
+export const categories = [
+  "Industrial spare parts",
+  "Diesel engine spare parts",
+  "Generator spare parts",
+  "Marine engine spare parts",
+  "Filters",
+  "Sensors",
+  "Cooling systems",
+  "Maintenance kits"
+];
+
+export const supportedBrands = ["Baudouin", "Cummins", "Volvo Penta", "Perkins", "Kohler", "Yanmar", "Lombardini"];
 
 export function slugify(value: string) {
   return value
@@ -22,24 +37,27 @@ export function slugify(value: string) {
 }
 
 export function getProductSlug(product: CatalogProduct) {
-  return slugify(`${product.codice}-${product.marca}`);
+  return slugify(`${product.partNumber}-${product.brand}`);
 }
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => getProductSlug(product) === slug);
 }
 
-export function formatPrice(price: number) {
-  return new Intl.NumberFormat("it-IT", {
-    style: "currency",
-    currency: "EUR"
-  }).format(price);
-}
-
 export function getBrands() {
-  return Array.from(new Set(products.map((product) => product.marca))).sort();
+  return Array.from(new Set(products.map((product) => product.brand))).sort();
 }
 
 export function getCategories() {
-  return Array.from(new Set(products.map((product) => product.categoria))).sort();
+  return Array.from(new Set(products.map((product) => product.category))).sort();
+}
+
+export function getEngineModels(brand?: string) {
+  return Array.from(
+    new Set(
+      products
+        .filter((product) => !brand || product.brand === brand)
+        .flatMap((product) => product.compatibleModels)
+    )
+  ).sort();
 }

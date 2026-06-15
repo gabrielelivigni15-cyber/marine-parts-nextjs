@@ -2,13 +2,15 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div>
-        <strong>MarineParts Pro</strong>
-        <p>Ricambi motori marini, verifica compatibilita e spedizioni da magazzino Italia.</p>
+        <strong>Apex Industrial Parts</strong>
+        <p>
+          Industrial spare parts sourcing for diesel engines, generator sets, marine engines and maintenance fleets.
+        </p>
       </div>
       <div>
-        <span>Banco ricambi: Lun-Ven 8:30-18:00</span>
-        <span>Ordini urgenti entro le 12:00</span>
-        <span>supporto@marinepartspro.it</span>
+        <span>Technical desk: Mon-Fri 08:00-18:00</span>
+        <span>Serial-number verification required</span>
+        <span>parts@apex-industrial.example</span>
       </div>
     </footer>
   );

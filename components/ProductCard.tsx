@@ -1,26 +1,33 @@
-import { ShipWheel } from "lucide-react";
+import { ArrowUpRight, Barcode, Boxes } from "lucide-react";
 import Link from "next/link";
-import { formatPrice, getProductSlug, type CatalogProduct } from "@/lib/catalog";
+import { getProductSlug, type CatalogProduct } from "@/lib/catalog";
 
 export function ProductCard({ product }: { product: CatalogProduct }) {
   return (
     <article className="product-card">
-      <img src={product.immagine} alt="" />
+      <img src={product.image} alt="" />
       <div className="product-card-body">
         <div className="tag-row">
-          <span>{product.categoria}</span>
-          <span>{product.marca}</span>
+          <span>{product.category}</span>
+          <span>{product.brand}</span>
         </div>
-        <h3>{product.descrizione}</h3>
-        <p className="sku-line">Codice {product.codice}</p>
+        <h3>{product.description}</h3>
+        <p className="sku-line">
+          <Barcode size={15} />
+          {product.partNumber}
+        </p>
         <div className="product-meta">
-          <strong>{formatPrice(product.prezzo)}</strong>
-          <span>{product.disponibilita}</span>
+          <strong>{product.availability}</strong>
+          <span>{product.leadTime}</span>
         </div>
-        <p className="supplier-line">Fornitore: {product.fornitore}</p>
+        <p className="supplier-line">
+          <Boxes size={15} />
+          {product.supplier}
+        </p>
+        <p className="verification-line">{product.verificationNote}</p>
         <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>
-          <ShipWheel size={17} />
-          Scheda prodotto
+          Open technical record
+          <ArrowUpRight size={17} />
         </Link>
       </div>
     </article>
