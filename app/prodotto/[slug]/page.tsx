@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArrowLeft, ClipboardList, Send } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getProductSlug, products } from "@/lib/catalog";
 
@@ -23,7 +24,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
       <div className="detail-grid product-detail-grid">
         <div className="detail-image industrial-image">
-          <img src={product.image} alt="" />
+          <Image src={product.image} alt="" width={1200} height={1200} priority />
         </div>
         <div className="detail-panel detail-copy">
           <div className="tag-row">

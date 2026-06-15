@@ -7,7 +7,7 @@
     "applications": ["Motori diesel industriali", "Gruppi elettrogeni", "Applicazioni marine"],
     "modelNotes": "Applicazioni Cummins da verificare tramite seriale motore.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   },
   {
@@ -18,7 +18,7 @@
     "applications": ["Motori diesel industriali", "Gruppi elettrogeni"],
     "modelNotes": "Applicazioni Cummins da verificare tramite seriale motore.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   },
   {
@@ -29,7 +29,7 @@
     "applications": ["Motori diesel", "Impianti industriali", "Applicazioni marine"],
     "modelNotes": "Applicazione da verificare in base a impianto e configurazione.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   },
   {
@@ -40,7 +40,7 @@
     "applications": ["Motori marini", "Circuiti acqua mare", "Manutenzione raffreddamento"],
     "modelNotes": "Modello pompa e seriale motore necessari per conferma.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   },
   {
@@ -51,7 +51,7 @@
     "applications": ["Motori diesel industriali", "Gruppi elettrogeni", "Macchine operatrici"],
     "modelNotes": "Codice sensore e seriale motore necessari per conferma.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1581092919535-7146ff1a590b?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   },
   {
@@ -62,7 +62,7 @@
     "applications": ["Motori diesel industriali", "Gruppi elettrogeni", "Propulsione marina"],
     "modelNotes": "Configurazione kit da verificare tramite seriale motore.",
     "availability": "Disponibilita da confermare",
-    "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80",
+    "image": "/images/industrial-diesel-hero.png",
     "verificationNote": "La compatibilita deve essere verificata tramite numero di serie del motore."
   }
 ]

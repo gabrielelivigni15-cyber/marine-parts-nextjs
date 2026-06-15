@@ -1,7 +1,6 @@
 import { ArrowRight, ClipboardCheck, Database, Search, Settings2 } from "lucide-react";
 import Link from "next/link";
-import { ProductCard } from "@/components/ProductCard";
-import { categories, products, supportedBrands } from "@/lib/catalog";
+import { categories, supportedBrands } from "@/lib/catalog";
 
 export default function HomePage() {
   return (
@@ -90,20 +89,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section service-band">
         <div className="section-header">
-          <p className="eyebrow">Esempi di ricerca</p>
-          <h2>Ricambi richiesti di frequente.</h2>
-          <p>Le schede sono esempi realistici. Disponibilita e compatibilita sono sempre da confermare.</p>
-        </div>
-        <div className="grid">
-          {products.map((product) => (
-            <ProductCard key={product.partNumber} product={product} />
-          ))}
+          <p className="eyebrow">Richiesta tecnica</p>
+          <h2>Quando il codice non basta, servono dati macchina.</h2>
+          <p>
+            Modello motore, seriale, applicazione e foto del componente riducono il rischio di ordinare un ricambio non
+            corretto.
+          </p>
         </div>
         <div className="button-row">
           <Link className="button secondary" href="/richiesta-preventivo">
-            Richiedi preventivo
+            Apri richiesta preventivo
             <ArrowRight size={18} />
           </Link>
         </div>

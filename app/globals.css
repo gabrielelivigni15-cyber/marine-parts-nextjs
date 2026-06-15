@@ -182,7 +182,7 @@ main {
 .industrial-hero {
   background:
     linear-gradient(90deg, rgba(8, 10, 12, 0.88), rgba(8, 10, 12, 0.72)),
-    url("https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1800&q=80") center/cover;
+    url("/images/industrial-diesel-hero.png") center/cover;
 }
 
 .hero-copy {
@@ -315,14 +315,12 @@ main {
 }
 
 .product-card {
+  position: relative;
   overflow: hidden;
-}
-
-.product-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(1.06);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
 }
 
 .product-card-body,
@@ -331,6 +329,21 @@ main {
 .detail-panel,
 .b2b-panel {
   padding: 22px;
+}
+
+.product-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--yellow);
+  content: "";
+  opacity: 0.72;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(240, 180, 41, 0.45);
+  background: rgba(27, 35, 44, 0.98);
 }
 
 .tag-row {
@@ -533,10 +546,18 @@ textarea {
   padding: 18px;
   color: var(--text);
   font-weight: 800;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .category-tile svg {
   color: var(--yellow);
+}
+
+.category-tile:hover {
+  border-color: rgba(240, 180, 41, 0.4);
+  background: rgba(240, 180, 41, 0.055);
 }
 
 .quote-checklist {

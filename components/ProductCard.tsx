@@ -5,7 +5,6 @@ import { getProductSlug, type CatalogProduct } from "@/lib/catalog";
 export function ProductCard({ product }: { product: CatalogProduct }) {
   return (
     <article className="product-card">
-      <img src={product.image} alt="" />
       <div className="product-card-body">
         <div className="tag-row">
           <span>{product.category}</span>
@@ -19,7 +18,7 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
         <p className="availability-line">{product.availability}</p>
         <p className="verification-line">{product.verificationNote}</p>
         <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>
-          Apri scheda
+          Consulta scheda
           <ArrowUpRight size={17} />
         </Link>
       </div>
