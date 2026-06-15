@@ -32,12 +32,12 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
           <h1>{product.description}</h1>
           <p>
-            Scheda tecnica per sourcing e preventivazione. L&apos;elenco applicazioni e un riferimento iniziale: la
-            compatibilita deve essere verificata tramite numero di serie del motore.
+            Scheda ricambio per identificazione e richiesta preventivo. I dati riportati non sostituiscono la verifica
+            sul numero di serie del motore.
           </p>
 
           <div className="part-number-panel">
-            <span>Codice ricambio</span>
+            <span>Codice o riferimento</span>
             <strong>{product.partNumber}</strong>
           </div>
 
@@ -55,26 +55,15 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               <strong>{product.availability}</strong>
             </div>
             <div>
-              <span>Tempo indicativo</span>
-              <strong>{product.leadTime}</strong>
-            </div>
-            <div>
-              <span>Canale fornitore</span>
-              <strong>{product.supplier}</strong>
+              <span>Nota applicazione</span>
+              <strong>{product.modelNotes}</strong>
             </div>
           </div>
 
-          <h3>Applicazioni note</h3>
+          <h3>Applicazioni</h3>
           <ul className="compat-list">
             {product.applications.map((application) => (
               <li key={application}>{application}</li>
-            ))}
-          </ul>
-
-          <h3>Modelli motore o generatore indicati</h3>
-          <ul className="compat-list">
-            {product.compatibleModels.map((model) => (
-              <li key={model}>{model}</li>
             ))}
           </ul>
 
@@ -87,7 +76,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             </Link>
             <Link className="text-link" href="/cerca-per-motore">
               <ClipboardList size={17} />
-              Cerca altro motore
+              Cerca altro ricambio
             </Link>
           </div>
         </div>

@@ -10,18 +10,18 @@ export default function CatalogPage() {
   return (
     <section className="section page-shell">
       <div className="section-header wide-header">
-        <p className="eyebrow">Catalogo industriale</p>
-        <h1>Ricambi per motori, gruppi elettrogeni e impianti industriali.</h1>
+        <p className="eyebrow">Catalogo ricambi</p>
+        <h1>Ricerca per codice, marchio o categoria.</h1>
         <p>
-          Catalogo strutturato per sourcing tecnico. Cerca per codice ricambio, filtra per marchio o categoria, apri la
-          scheda e invia la richiesta di preventivo con numero di serie motore.
+          Le schede indicano riferimenti utili per l&apos;identificazione del ricambio. Disponibilita e compatibilita
+          devono essere confermate prima dell&apos;ordine.
         </p>
       </div>
 
       <div className="catalog-tools">
         <div className="field">
-          <label htmlFor="search">Codice ricambio o descrizione</label>
-          <input id="search" placeholder="Esempio: CUM-SEN, kit Perkins, filtro carburante" />
+          <label htmlFor="search">Codice o descrizione</label>
+          <input id="search" placeholder="Esempio: Cummins FF5713, Racor 500FG" />
         </div>
         <div className="field">
           <label htmlFor="brand">Marchio</label>
@@ -45,12 +45,9 @@ export default function CatalogPage() {
 
       <div className="inventory-note">
         <PackageSearch size={18} />
-        <span>
-          {products.length} schede demo. La disponibilita indica magazzino, disponibilita fornitore, scorta limitata o
-          articolo su richiesta.
-        </span>
+        <span>Disponibilita da confermare. Nessuna scheda sostituisce la verifica tramite seriale motore.</span>
         <Link className="text-link" href="/richiesta-preventivo">
-          Richiedi preventivo
+          Richiedi verifica
         </Link>
       </div>
 

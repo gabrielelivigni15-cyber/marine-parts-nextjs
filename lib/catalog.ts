@@ -6,10 +6,8 @@ export type CatalogProduct = {
   description: string;
   category: string;
   applications: string[];
-  compatibleModels: string[];
+  modelNotes: string;
   availability: string;
-  leadTime: string;
-  supplier: string;
   image: string;
   verificationNote: string;
 };
@@ -52,12 +50,6 @@ export function getCategories() {
   return Array.from(new Set(products.map((product) => product.category))).sort();
 }
 
-export function getEngineModels(brand?: string) {
-  return Array.from(
-    new Set(
-      products
-        .filter((product) => !brand || product.brand === brand)
-        .flatMap((product) => product.compatibleModels)
-    )
-  ).sort();
+export function getSearchModels() {
+  return Array.from(new Set(products.flatMap((product) => [product.brand, ...product.applications]))).sort();
 }

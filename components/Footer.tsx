@@ -4,12 +4,12 @@ export function Footer() {
       <div>
         <strong>Apex Ricambi Industriali</strong>
         <p>
-          Fornitura ricambi industriali per motori diesel, gruppi elettrogeni, motori marini e flotte di manutenzione.
+          Ricerca e fornitura ricambi per motori diesel, gruppi elettrogeni, impianti industriali e applicazioni marine.
         </p>
       </div>
       <div>
-        <span>Banco tecnico: lun-ven 08:00-18:00</span>
-        <span>Verifica tramite numero di serie obbligatoria</span>
+        <span>Ricerca per codice articolo</span>
+        <span>Verifica compatibilita tramite seriale motore</span>
         <span>parts@apex-industrial.example</span>
       </div>
     </footer>

@@ -12,9 +12,10 @@ sensori, sistemi di raffreddamento e kit manutenzione.
 - Richiesta Preventivo: form tecnico per ufficio acquisti e supporto ricambi.
 - B2B: accesso operatori, richieste ricorrenti e supporto per flotte/officine.
 
-## Dati demo
+## Dati prodotto
 
-La sorgente prodotti e `lib/products.json`. Non vengono inventati dati tecnici sconosciuti; ogni record include:
+La sorgente prodotti e `lib/products.json`. Non vengono inventati dati tecnici sconosciuti, quantita di magazzino o
+fornitori fittizi. Ogni record include:
 `La compatibilita deve essere verificata tramite numero di serie del motore.`
 
 Campi usati:
@@ -24,10 +25,8 @@ Campi usati:
 - `description`
 - `category`
 - `applications`
-- `compatibleModels`
+- `modelNotes`
 - `availability`
-- `leadTime`
-- `supplier`
 - `image`
 - `verificationNote`
 

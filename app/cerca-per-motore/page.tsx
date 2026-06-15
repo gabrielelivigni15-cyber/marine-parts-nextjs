@@ -3,14 +3,14 @@
 import { Barcode, Search, Settings2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { getEngineModels, getProductSlug, products } from "@/lib/catalog";
+import { getProductSlug, getSearchModels, products } from "@/lib/catalog";
 
 export default function PartsSearchPage() {
   const [partNumber, setPartNumber] = useState("");
   const [engineModel, setEngineModel] = useState("");
   const [serialNumber, setSerialNumber] = useState("");
 
-  const models = useMemo(() => getEngineModels(), []);
+  const models = useMemo(() => getSearchModels(), []);
 
   const results = useMemo(() => {
     const partQuery = partNumber.trim().toLowerCase();
@@ -22,7 +22,10 @@ export default function PartsSearchPage() {
         product.partNumber.toLowerCase().includes(partQuery) ||
         product.description.toLowerCase().includes(partQuery);
       const matchesModel =
-        !modelQuery || product.compatibleModels.some((model) => model.toLowerCase().includes(modelQuery));
+        !modelQuery ||
+        product.brand.toLowerCase().includes(modelQuery) ||
+        product.applications.some((application) => application.toLowerCase().includes(modelQuery)) ||
+        product.modelNotes.toLowerCase().includes(modelQuery);
 
       return matchesPart && matchesModel;
     });
@@ -32,31 +35,31 @@ export default function PartsSearchPage() {
     <section className="section page-shell">
       <div className="section-header wide-header">
         <p className="eyebrow">Ricerca ricambi</p>
-        <h1>Cerca per codice ricambio, modello motore o numero di serie.</h1>
+        <h1>Inserisci codice, motore o applicazione.</h1>
         <p>
-          Usa il codice ricambio quando disponibile. Usa il modello motore per restringere il catalogo. Inserisci il
-          numero di serie nella richiesta: la compatibilita deve essere verificata tramite numero di serie del motore.
+          La ricerca aiuta a individuare una scheda. Per ordinare serve la verifica compatibilita tramite numero di serie
+          del motore.
         </p>
       </div>
 
       <div className="search-console">
         <div className="field">
-          <label htmlFor="part-number">Codice ricambio</label>
+          <label htmlFor="part-number">Codice articolo</label>
           <input
             id="part-number"
             value={partNumber}
             onChange={(event) => setPartNumber(event.target.value)}
-            placeholder="Esempio: CUM-SEN-4921475"
+            placeholder="Esempio: Cummins FF5713"
           />
         </div>
         <div className="field">
-          <label htmlFor="engine-model">Modello motore o generatore</label>
+          <label htmlFor="engine-model">Motore o applicazione</label>
           <input
             id="engine-model"
             value={engineModel}
             onChange={(event) => setEngineModel(event.target.value)}
             list="engine-models"
-            placeholder="Esempio: Perkins 1104D, Cummins QSB"
+            placeholder="Esempio: gruppo elettrogeno, motore diesel"
           />
           <datalist id="engine-models">
             {models.map((model) => (
@@ -65,30 +68,30 @@ export default function PartsSearchPage() {
           </datalist>
         </div>
         <div className="field">
-          <label htmlFor="serial-number">Numero di serie motore</label>
+          <label htmlFor="serial-number">Numero di serie</label>
           <input
             id="serial-number"
             value={serialNumber}
             onChange={(event) => setSerialNumber(event.target.value)}
-            placeholder="Richiesto per verifica compatibilita"
+            placeholder="Necessario per la conferma"
           />
         </div>
         <div className="search-console-footer">
           <button className="button" type="button">
             <Search size={18} />
-            {results.length} schede trovate
+            Cerca
           </button>
           <span>
             {serialNumber
-              ? "Numero di serie inserito per la richiesta tecnica."
-              : "Numero di serie non ancora inserito."}
+              ? "Numero di serie indicato: usare nella richiesta preventivo."
+              : "Inserire il seriale se disponibile."}
           </span>
         </div>
       </div>
 
       <div className="section-header inline-note">
-        <h2>Risultati ricerca</h2>
-        <p>I risultati sono corrispondenze di catalogo, non conferme definitive di compatibilita.</p>
+        <h2>Risultati</h2>
+        <p>I risultati non confermano la compatibilita. Servono codice corretto e seriale motore.</p>
       </div>
 
       <div className="results-table">
@@ -103,12 +106,12 @@ export default function PartsSearchPage() {
               <p>{product.verificationNote}</p>
             </div>
             <div>
-              <span>{product.brand}</span>
-              <strong>{product.category}</strong>
+              <span>Marchio</span>
+              <strong>{product.brand}</strong>
             </div>
             <div>
-              <span>{product.availability}</span>
-              <strong>{product.leadTime}</strong>
+              <span>Disponibilita</span>
+              <strong>{product.availability}</strong>
             </div>
             <div className="row-actions">
               <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>

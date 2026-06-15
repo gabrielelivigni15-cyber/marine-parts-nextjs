@@ -1,100 +1,83 @@
-import { ArrowRight, ClipboardCheck, Database, Search, Settings2, Truck } from "lucide-react";
+import { ArrowRight, ClipboardCheck, Database, Search, Settings2 } from "lucide-react";
 import Link from "next/link";
 import { ProductCard } from "@/components/ProductCard";
 import { categories, products, supportedBrands } from "@/lib/catalog";
 
 export default function HomePage() {
-  const warehouseItems = products.filter((product) => product.availability.toLowerCase().includes("magazzino"));
-
   return (
     <>
       <section className="hero industrial-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Fornitura ricambi industriali</p>
-          <h1>Ricambi per motori diesel, gruppi elettrogeni e macchinari industriali.</h1>
-          <p>
-            Apex Ricambi Industriali supporta uffici acquisti, officine e manutentori con ricerca per codice ricambio,
-            modello motore e numero di serie prima della conferma ordine.
-          </p>
-          <div className="hero-actions">
+          <p className="eyebrow">Ricambi industriali e motori diesel</p>
+          <h1>Ricambi industriali e motori diesel</h1>
+          <p>Ricerca componenti tramite codice articolo, modello motore o applicazione.</p>
+
+          <div className="hero-search" aria-label="Ricerca principale">
+            <div className="field">
+              <label htmlFor="hero-code">Codice articolo</label>
+              <input id="hero-code" placeholder="Esempio: Cummins FF5713, Racor 500FG" />
+            </div>
+            <div className="field">
+              <label htmlFor="hero-engine">Modello motore</label>
+              <input id="hero-engine" placeholder="Esempio: Cummins, Perkins, Volvo Penta" />
+            </div>
+            <div className="field">
+              <label htmlFor="hero-serial">Seriale motore</label>
+              <input id="hero-serial" placeholder="Da indicare per la verifica" />
+            </div>
             <Link className="button" href="/cerca-per-motore">
               Cerca ricambi
               <Search size={18} />
             </Link>
-            <Link className="button secondary" href="/richiesta-preventivo">
-              Richiedi preventivo
-              <ArrowRight size={18} />
-            </Link>
           </div>
         </div>
-        <div className="hero-panel" aria-label="Riepilogo ricerca operativa">
+        <div className="hero-panel" aria-label="Nota operativa">
           <div>
-            <span>Flusso principale</span>
-            <strong>Codice ricambio / modello motore / numero di serie</strong>
+            <span>Metodo di lavoro</span>
+            <strong>Si parte da codice, modello motore o applicazione. La compatibilita si conferma con il seriale.</strong>
           </div>
           <div>
-            <span>Marchi gestiti</span>
+            <span>Marchi trattati</span>
             <strong>{supportedBrands.join(", ")}</strong>
           </div>
           <div>
-            <span>Regola di verifica</span>
-            <strong>La compatibilita deve essere verificata tramite numero di serie del motore.</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="section compact-section">
-        <div className="stat-strip">
-          <div>
-            <strong>{products.length}</strong>
-            <span>schede ricambio demo</span>
-          </div>
-          <div>
-            <strong>{warehouseItems.length}</strong>
-            <span>articoli con disponibilita a magazzino</span>
-          </div>
-          <div>
-            <strong>7</strong>
-            <span>marchi motore e generatore</span>
-          </div>
-          <div>
-            <strong>B2B</strong>
-            <span>uffici acquisti e service partner</span>
+            <span>Nota tecnica</span>
+            <strong>La disponibilita deve essere confermata prima dell&apos;ordine.</strong>
           </div>
         </div>
       </section>
 
       <section className="section split-section">
         <div className="section-header">
-          <p className="eyebrow">Prima la verifica, poi l&apos;offerta</p>
-          <h2>Un flusso pensato per chi compra ricambi tecnici.</h2>
+          <p className="eyebrow">Ricerca e verifica</p>
+          <h2>Il catalogo serve a identificare il ricambio, non a sostituire il controllo tecnico.</h2>
         </div>
         <div className="process-grid">
           <div className="feature">
             <Search color="#f2b84b" />
             <h3>Ricerca per codice</h3>
-            <p>Usa riferimenti OEM, codici kit service o codici fornitore per arrivare subito alla scheda.</p>
+            <p>Inserisci il riferimento presente sul filtro, sul sensore, sulla confezione o su una fattura precedente.</p>
           </div>
           <div className="feature">
             <Settings2 color="#6ea8ff" />
-            <h3>Ricerca per modello motore</h3>
-            <p>Filtra per famiglie Baudouin, Cummins, Volvo Penta, Perkins, Kohler, Yanmar e Lombardini.</p>
+            <h3>Ricerca per motore</h3>
+            <p>Indica marchio, modello e applicazione. Se il dato non e sufficiente, serve il seriale motore.</p>
           </div>
           <div className="feature">
             <ClipboardCheck color="#35c46d" />
-            <h3>Verifica numero di serie</h3>
-            <p>La compatibilita deve essere verificata tramite numero di serie del motore prima della conferma ordine.</p>
+            <h3>Verifica compatibilita</h3>
+            <p>La compatibilita deve essere verificata tramite numero di serie del motore prima dell&apos;ordine.</p>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="section-header">
-          <p className="eyebrow">Categorie</p>
-          <h2>Struttura catalogo industriale.</h2>
+          <p className="eyebrow">Categorie ricambio</p>
+          <h2>Filtri, sensori, raffreddamento e kit manutenzione.</h2>
           <p>
-            Le schede sono organizzate per applicazione e famiglia ricambio, così il cliente passa da un intervento di
-            manutenzione a una richiesta tecnica senza attraversare un catalogo retail.
+            Le categorie aiutano a orientare la richiesta. Per l&apos;ordine servono sempre codice, modello o numero di
+            serie.
           </p>
         </div>
         <div className="category-grid">
@@ -109,44 +92,20 @@ export default function HomePage() {
 
       <section className="section">
         <div className="section-header">
-          <p className="eyebrow">Schede in evidenza</p>
-          <h2>Catalogo demo corrente.</h2>
-          <p>
-            Ogni scheda mostra codice ricambio, marchio, applicazione, disponibilita e nota di verifica. Non vengono
-            inseriti dati tecnici non confermati.
-          </p>
+          <p className="eyebrow">Esempi di ricerca</p>
+          <h2>Ricambi richiesti di frequente.</h2>
+          <p>Le schede sono esempi realistici. Disponibilita e compatibilita sono sempre da confermare.</p>
         </div>
         <div className="grid">
-          {products.slice(0, 6).map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.partNumber} product={product} />
           ))}
         </div>
-      </section>
-
-      <section className="section service-band">
-        <div className="section-header">
-          <p className="eyebrow">Operativita B2B</p>
-          <h2>Per flotte, officine, service gruppi elettrogeni e manutenzione industriale.</h2>
-        </div>
-        <div className="grid">
-          <div className="feature">
-            <Truck color="#f2b84b" />
-            <h3>Magazzino e stock fornitore</h3>
-            <p>
-              Le schede distinguono disponibilita a magazzino, disponibilita fornitore, scorta limitata e articoli su
-              richiesta.
-            </p>
-          </div>
-          <div className="feature">
-            <ClipboardCheck color="#35c46d" />
-            <h3>Gestione richiesta tecnica</h3>
-            <p>Le richieste raccolgono codice ricambio, modello motore, numero di serie e applicazione macchina.</p>
-          </div>
-          <div className="feature">
-            <Database color="#6ea8ff" />
-            <h3>Acquisti ricorrenti</h3>
-            <p>I clienti B2B possono richiedere supporto per riordini, liste flotta e kit manutenzione programmata.</p>
-          </div>
+        <div className="button-row">
+          <Link className="button secondary" href="/richiesta-preventivo">
+            Richiedi preventivo
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </>

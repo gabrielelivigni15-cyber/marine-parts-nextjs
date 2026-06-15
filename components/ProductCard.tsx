@@ -1,4 +1,4 @@
-import { ArrowUpRight, Barcode, Boxes } from "lucide-react";
+import { ArrowUpRight, Barcode } from "lucide-react";
 import Link from "next/link";
 import { getProductSlug, type CatalogProduct } from "@/lib/catalog";
 
@@ -16,17 +16,10 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
           <Barcode size={15} />
           {product.partNumber}
         </p>
-        <div className="product-meta">
-          <strong>{product.availability}</strong>
-          <span>{product.leadTime}</span>
-        </div>
-        <p className="supplier-line">
-          <Boxes size={15} />
-          {product.supplier}
-        </p>
+        <p className="availability-line">{product.availability}</p>
         <p className="verification-line">{product.verificationNote}</p>
         <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>
-          Apri scheda tecnica
+          Apri scheda
           <ArrowUpRight size={17} />
         </Link>
       </div>
