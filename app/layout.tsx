@@ -4,9 +4,9 @@ import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Apex Industrial Parts | Diesel, generator and marine engine spares",
+  title: "Apex Ricambi Industriali | Ricambi industriali, diesel e gruppi elettrogeni",
   description:
-    "Industrial spare parts catalog for diesel engines, generator sets, marine engines, filters, sensors, cooling systems and maintenance kits."
+    "Catalogo ricambi industriali per motori diesel, gruppi elettrogeni, motori marini, filtri, sensori, raffreddamento e kit manutenzione."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

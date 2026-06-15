@@ -10,32 +10,32 @@ export default function CatalogPage() {
   return (
     <section className="section page-shell">
       <div className="section-header wide-header">
-        <p className="eyebrow">Industrial catalog</p>
-        <h1>Spare parts for engines, generator sets and industrial equipment.</h1>
+        <p className="eyebrow">Catalogo industriale</p>
+        <h1>Ricambi per motori, gruppi elettrogeni e impianti industriali.</h1>
         <p>
-          This catalog is structured for technical sourcing. Search by part number, filter by brand or category, then
-          open a product record before sending a quote request.
+          Catalogo strutturato per sourcing tecnico. Cerca per codice ricambio, filtra per marchio o categoria, apri la
+          scheda e invia la richiesta di preventivo con numero di serie motore.
         </p>
       </div>
 
       <div className="catalog-tools">
         <div className="field">
-          <label htmlFor="search">Part number or description</label>
-          <input id="search" placeholder="Example: CUM-SEN, Perkins kit, fuel filter" />
+          <label htmlFor="search">Codice ricambio o descrizione</label>
+          <input id="search" placeholder="Esempio: CUM-SEN, kit Perkins, filtro carburante" />
         </div>
         <div className="field">
-          <label htmlFor="brand">Brand</label>
+          <label htmlFor="brand">Marchio</label>
           <select id="brand">
-            <option>All brands</option>
+            <option>Tutti i marchi</option>
             {brands.map((brand) => (
               <option key={brand}>{brand}</option>
             ))}
           </select>
         </div>
         <div className="field">
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category">Categoria</label>
           <select id="category">
-            <option>All categories</option>
+            <option>Tutte le categorie</option>
             {categories.map((category) => (
               <option key={category}>{category}</option>
             ))}
@@ -46,17 +46,18 @@ export default function CatalogPage() {
       <div className="inventory-note">
         <PackageSearch size={18} />
         <span>
-          {products.length} demo records. Availability is shown as warehouse stock, supplier stock, low stock or
-          on-request.
+          {products.length} schede demo. La disponibilita indica magazzino, disponibilita fornitore, scorta limitata o
+          articolo su richiesta.
         </span>
         <Link className="text-link" href="/richiesta-preventivo">
-          Request quote
+          Richiedi preventivo
         </Link>
       </div>
 
       <div className="section-header inline-note">
         <p>
-          <Filter size={16} aria-hidden="true" /> Compatibility should be verified through engine serial number.
+          <Filter size={16} aria-hidden="true" /> La compatibilita deve essere verificata tramite numero di serie del
+          motore.
         </p>
       </div>
 

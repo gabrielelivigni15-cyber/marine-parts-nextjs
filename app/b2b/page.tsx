@@ -6,37 +6,37 @@ export default function B2BPage() {
   return (
     <section className="section page-shell">
       <div className="section-header wide-header">
-        <p className="eyebrow">B2B customers</p>
-        <h1>Procurement support for workshops, fleets, generator service companies and industrial plants.</h1>
+        <p className="eyebrow">Clienti B2B</p>
+        <h1>Supporto acquisti per officine, flotte, service gruppi elettrogeni e stabilimenti industriali.</h1>
         <p>
-          The B2B workflow is designed for repeat purchasing, scheduled maintenance, machine-down requests and technical
-          identification work before orders are released.
+          Il flusso B2B e pensato per riordini, manutenzioni programmate, macchine ferme e identificazione tecnica prima
+          del rilascio ordine.
         </p>
       </div>
 
       <div className="detail-grid">
         <div className="b2b-panel">
           <LockKeyhole color="#f2b84b" />
-          <h2>Request B2B access</h2>
+          <h2>Richiedi accesso B2B</h2>
           <form className="form-grid">
             <div className="field full">
-              <label htmlFor="company">Company name</label>
-              <input id="company" placeholder="Workshop / fleet / industrial plant / distributor" />
+              <label htmlFor="company">Ragione sociale</label>
+              <input id="company" placeholder="Officina / flotta / stabilimento / distributore" />
             </div>
             <div className="field">
-              <label htmlFor="vat">VAT or company registration</label>
-              <input id="vat" placeholder="Company identifier" />
+              <label htmlFor="vat">Partita IVA o registrazione aziendale</label>
+              <input id="vat" placeholder="Identificativo azienda" />
             </div>
             <div className="field">
-              <label htmlFor="email">Purchasing email</label>
-              <input id="email" type="email" placeholder="parts@company.com" />
+              <label htmlFor="email">Email acquisti</label>
+              <input id="email" type="email" placeholder="ricambi@azienda.it" />
             </div>
             <div className="field full">
-              <label htmlFor="brands">Brands serviced</label>
+              <label htmlFor="brands">Marchi gestiti</label>
               <input id="brands" placeholder={supportedBrands.join(", ")} />
             </div>
             <button className="button" type="button">
-              Request account review
+              Richiedi valutazione account
             </button>
           </form>
         </div>
@@ -44,26 +44,28 @@ export default function B2BPage() {
         <div className="grid b2b-grid">
           <div className="feature">
             <BadgePercent color="#f2b84b" />
-            <h3>Account pricing workflow</h3>
-            <p>Quote handling can separate emergency orders, planned maintenance and recurring fleet stock.</p>
+            <h3>Flusso prezzi account</h3>
+            <p>Le richieste possono separare urgenze, manutenzioni programmate e scorte ricorrenti di flotta.</p>
           </div>
           <div className="feature">
             <FileSpreadsheet color="#35c46d" />
-            <h3>Part lists and CSV requests</h3>
-            <p>Send part-number lists, service-kit requirements or multi-engine maintenance schedules.</p>
+            <h3>Liste ricambi e richieste CSV</h3>
+            <p>Invia liste codici, richieste kit service o piani manutenzione multi-motore.</p>
           </div>
           <div className="feature">
             <PackageCheck color="#6ea8ff" />
-            <h3>Stock and lead-time control</h3>
-            <p>Records distinguish central warehouse, supplier stock, low stock and on-request sourcing.</p>
+            <h3>Controllo disponibilita e tempi</h3>
+            <p>
+              Le schede distinguono magazzino centrale, disponibilita fornitore, scorta limitata e ricerca su richiesta.
+            </p>
           </div>
           <div className="feature">
             <UserRoundCheck color="#6ea8ff" />
-            <h3>Technical desk support</h3>
-            <p>Compatibility should be verified through engine serial number before purchase confirmation.</p>
+            <h3>Supporto banco tecnico</h3>
+            <p>La compatibilita deve essere verificata tramite numero di serie del motore prima della conferma acquisto.</p>
             <div className="button-row">
               <Link className="text-link" href="/richiesta-preventivo">
-                Open technical request
+                Apri richiesta tecnica
               </Link>
             </div>
           </div>

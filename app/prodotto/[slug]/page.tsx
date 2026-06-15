@@ -18,7 +18,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     <section className="section page-shell">
       <Link className="text-link" href="/catalogo">
         <ArrowLeft size={17} />
-        Back to catalog
+        Torna al catalogo
       </Link>
 
       <div className="detail-grid product-detail-grid">
@@ -32,46 +32,46 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
           <h1>{product.description}</h1>
           <p>
-            Technical product record for sourcing and quotation. The application list is a starting point only:
-            compatibility should be verified through engine serial number.
+            Scheda tecnica per sourcing e preventivazione. L&apos;elenco applicazioni e un riferimento iniziale: la
+            compatibilita deve essere verificata tramite numero di serie del motore.
           </p>
 
           <div className="part-number-panel">
-            <span>Part number</span>
+            <span>Codice ricambio</span>
             <strong>{product.partNumber}</strong>
           </div>
 
           <div className="spec-list">
             <div>
-              <span>Brand</span>
+              <span>Marchio</span>
               <strong>{product.brand}</strong>
             </div>
             <div>
-              <span>Category</span>
+              <span>Categoria</span>
               <strong>{product.category}</strong>
             </div>
             <div>
-              <span>Availability</span>
+              <span>Disponibilita</span>
               <strong>{product.availability}</strong>
             </div>
             <div>
-              <span>Lead time</span>
+              <span>Tempo indicativo</span>
               <strong>{product.leadTime}</strong>
             </div>
             <div>
-              <span>Supplier channel</span>
+              <span>Canale fornitore</span>
               <strong>{product.supplier}</strong>
             </div>
           </div>
 
-          <h3>Known application areas</h3>
+          <h3>Applicazioni note</h3>
           <ul className="compat-list">
             {product.applications.map((application) => (
               <li key={application}>{application}</li>
             ))}
           </ul>
 
-          <h3>Referenced engine or generator models</h3>
+          <h3>Modelli motore o generatore indicati</h3>
           <ul className="compat-list">
             {product.compatibleModels.map((model) => (
               <li key={model}>{model}</li>
@@ -83,11 +83,11 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           <div className="button-row">
             <Link className="button" href={`/richiesta-preventivo?part=${product.partNumber}`}>
               <Send size={18} />
-              Request quote
+              Richiedi preventivo
             </Link>
             <Link className="text-link" href="/cerca-per-motore">
               <ClipboardList size={17} />
-              Search another engine
+              Cerca altro motore
             </Link>
           </div>
         </div>

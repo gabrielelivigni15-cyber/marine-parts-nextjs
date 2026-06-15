@@ -26,7 +26,7 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
         </p>
         <p className="verification-line">{product.verificationNote}</p>
         <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>
-          Open technical record
+          Apri scheda tecnica
           <ArrowUpRight size={17} />
         </Link>
       </div>

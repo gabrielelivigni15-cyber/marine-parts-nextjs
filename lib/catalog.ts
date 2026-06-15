@@ -17,14 +17,14 @@ export type CatalogProduct = {
 export const products = productsJson as CatalogProduct[];
 
 export const categories = [
-  "Industrial spare parts",
-  "Diesel engine spare parts",
-  "Generator spare parts",
-  "Marine engine spare parts",
-  "Filters",
-  "Sensors",
-  "Cooling systems",
-  "Maintenance kits"
+  "Ricambi industriali",
+  "Ricambi motori diesel",
+  "Ricambi gruppi elettrogeni",
+  "Ricambi motori marini",
+  "Filtri",
+  "Sensori",
+  "Sistemi di raffreddamento",
+  "Kit manutenzione"
 ];
 
 export const supportedBrands = ["Baudouin", "Cummins", "Volvo Penta", "Perkins", "Kohler", "Yanmar", "Lombardini"];

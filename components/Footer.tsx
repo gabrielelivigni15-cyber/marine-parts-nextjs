@@ -2,14 +2,14 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div>
-        <strong>Apex Industrial Parts</strong>
+        <strong>Apex Ricambi Industriali</strong>
         <p>
-          Industrial spare parts sourcing for diesel engines, generator sets, marine engines and maintenance fleets.
+          Fornitura ricambi industriali per motori diesel, gruppi elettrogeni, motori marini e flotte di manutenzione.
         </p>
       </div>
       <div>
-        <span>Technical desk: Mon-Fri 08:00-18:00</span>
-        <span>Serial-number verification required</span>
+        <span>Banco tecnico: lun-ven 08:00-18:00</span>
+        <span>Verifica tramite numero di serie obbligatoria</span>
         <span>parts@apex-industrial.example</span>
       </div>
     </footer>

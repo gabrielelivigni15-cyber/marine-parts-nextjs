@@ -31,32 +31,32 @@ export default function PartsSearchPage() {
   return (
     <section className="section page-shell">
       <div className="section-header wide-header">
-        <p className="eyebrow">Parts search</p>
-        <h1>Search by part number, engine model or serial number.</h1>
+        <p className="eyebrow">Ricerca ricambi</p>
+        <h1>Cerca per codice ricambio, modello motore o numero di serie.</h1>
         <p>
-          Use the part number when available. Use engine model to narrow the catalog. Add the serial number when
-          requesting a quote: compatibility should be verified through engine serial number.
+          Usa il codice ricambio quando disponibile. Usa il modello motore per restringere il catalogo. Inserisci il
+          numero di serie nella richiesta: la compatibilita deve essere verificata tramite numero di serie del motore.
         </p>
       </div>
 
       <div className="search-console">
         <div className="field">
-          <label htmlFor="part-number">Part number</label>
+          <label htmlFor="part-number">Codice ricambio</label>
           <input
             id="part-number"
             value={partNumber}
             onChange={(event) => setPartNumber(event.target.value)}
-            placeholder="Example: CUM-SEN-4921475"
+            placeholder="Esempio: CUM-SEN-4921475"
           />
         </div>
         <div className="field">
-          <label htmlFor="engine-model">Engine or generator model</label>
+          <label htmlFor="engine-model">Modello motore o generatore</label>
           <input
             id="engine-model"
             value={engineModel}
             onChange={(event) => setEngineModel(event.target.value)}
             list="engine-models"
-            placeholder="Example: Perkins 1104D, Cummins QSB"
+            placeholder="Esempio: Perkins 1104D, Cummins QSB"
           />
           <datalist id="engine-models">
             {models.map((model) => (
@@ -65,26 +65,30 @@ export default function PartsSearchPage() {
           </datalist>
         </div>
         <div className="field">
-          <label htmlFor="serial-number">Engine serial number</label>
+          <label htmlFor="serial-number">Numero di serie motore</label>
           <input
             id="serial-number"
             value={serialNumber}
             onChange={(event) => setSerialNumber(event.target.value)}
-            placeholder="Required for final compatibility check"
+            placeholder="Richiesto per verifica compatibilita"
           />
         </div>
         <div className="search-console-footer">
           <button className="button" type="button">
             <Search size={18} />
-            {results.length} matching records
+            {results.length} schede trovate
           </button>
-          <span>{serialNumber ? "Serial number captured for quote request." : "Serial number not entered yet."}</span>
+          <span>
+            {serialNumber
+              ? "Numero di serie inserito per la richiesta tecnica."
+              : "Numero di serie non ancora inserito."}
+          </span>
         </div>
       </div>
 
       <div className="section-header inline-note">
-        <h2>Search results</h2>
-        <p>Results are catalog matches, not final compatibility confirmation.</p>
+        <h2>Risultati ricerca</h2>
+        <p>I risultati sono corrispondenze di catalogo, non conferme definitive di compatibilita.</p>
       </div>
 
       <div className="results-table">
@@ -109,10 +113,10 @@ export default function PartsSearchPage() {
             <div className="row-actions">
               <Link className="text-link" href={`/prodotto/${getProductSlug(product)}`}>
                 <Settings2 size={16} />
-                Record
+                Scheda
               </Link>
               <Link className="text-link" href={`/richiesta-preventivo?part=${product.partNumber}`}>
-                Quote
+                Preventivo
               </Link>
             </div>
           </article>
